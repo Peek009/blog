@@ -1,0 +1,20 @@
+<form method="post" action="<?= ROOT ?>/postcontroller/createPost">
+    <?php if(!empty($errors)):?>
+        <div class="danger">
+            <?= implode("<br>", $errors)?>
+            <h1 style="color:red;">U forgot something</h1>
+        </div>
+    <?php endif;?>
+
+    <div class="info">
+        <input class="fname" type="text" name="name" placeholder="Full name">
+    </div>
+    <p>Message</p>
+    <div>
+        <textarea name="textarea" rows="4"></textarea>
+    </div>
+    <button type="submit" href="<?= ROOT ?>/postcontroller/createPost">Submit</button>
+    <a>
+        <button>Create Post</button>
+    </a>
+</form>

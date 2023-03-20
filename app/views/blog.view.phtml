@@ -1,0 +1,53 @@
+<?php include('header.phtml'); ?>
+
+<?php //show($data);die; ?>
+
+<div class="blog">
+    <h1>This is a blog page</h1>
+    <a href="<?= ROOT ?>/postcontroller">
+        <button>Create Post</button>
+    </a>
+    <div class="posts">
+    <?php foreach ($data as $post): ?>
+        <div class="post">
+            <div class="text"><?= $post->getText(); ?></div>
+            <div class="name"><?= $post->getName(); ?></div>
+
+<!--            <form method="post" action="--><?php //= ROOT ?><!--/blog/deletePost">-->
+                <a href="<?= ROOT ?>/blog?delete=<?= $post->getId(); ?>">
+                    <div class="delete-post">delete post</div>
+                </a>
+                <a href="<?= ROOT ?>/blog/deletePost/<?= $post->getId(); ?>">
+                    <div class="delete-post">delete post</div>
+                </a>
+                <a href="">
+                    <div class="delete-post">delete post</div>
+                <input hidden name="id" value="<?= $post->getId(); ?>"/>
+                </a>
+                <button type="submit">delete</button>
+<!--            </form>-->
+        </div>
+    <?php endforeach; ?>
+    </div>
+</div>
+
+<div class="create-post">
+    <form method="post" action="<?= ROOT ?>/blog/createPost">
+        <?php if (!empty($errors)): ?>
+            <div class="danger">
+                <?= implode("<br>", $errors) ?>
+                <h1 style="color:red;">U forgot something</h1>
+            </div>
+        <?php endif; ?>
+        <p>Message</p>
+        <div class="info">
+            <input class="fname" type="text" name="author" placeholder="Full name">
+        </div>
+        <div>
+            <textarea name="text" rows="4"></textarea>
+        </div>
+        <button type="submit">Submit</button>
+    </form>
+</div>
+
+<?php include('footer.phtml'); ?>

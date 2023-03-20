@@ -1,0 +1,45 @@
+body {
+    font-size: 40px;
+    background-color: lightblue;
+}
+
+button {
+    height: 80px;
+    width: 180px;
+}
+
+.blog {
+    font-size: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.create-post {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.posts {
+    max-width: 1200px;
+    padding: 20px;
+    margin: 20px;
+}
+
+.post {
+    border: 2px solid black;
+    padding: 20px;
+    margin: 20px;
+}
+
+.name {
+    border-top: 1px solid black;
+    text-align: right;
+}
+
+.delete-post {
+    font-size: 20px;
+}
